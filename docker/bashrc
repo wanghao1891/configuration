@@ -1,0 +1,124 @@
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# don't put duplicate lines in the history. See bash(1) for more options
+# ... or force ignoredups and ignorespace
+HISTCONTROL=ignoredups:ignorespace
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+#force_color_prompt=yes
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
+fi
+
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+#if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+#    . /etc/bash_completion
+#fi
+
+# add by wh
+# porgramming in docker
+alias docker-programming='docker run -d -p 220:22 --name programming -v /root/workspace/conf/emacs.d/mine:/root/.emacs.d -v /root/workspace/:/mnt -v /root/workspace/conf/ssh/programming:/root/.ssh -v /var/lib/docker:/var/lib/docker -v /root/workspace/ctags:/root/ctags programming:v0.0.10 /usr/sbin/sshd -D'
+alias enter-programming='ssh -p 220 127.0.0.1'
+alias node='/root/workspace/bin/node/bin/node'
+alias npm='/root/workspace/bin/node/bin/npm'
+alias docker-mongodb='docker run -d -p 27017:27017 --name mongodb -v /root/workspace/conf/mongodb/:/root/conf -v /root/workspace/data/:/root/data mongodb-3.0.3:v0.0.2 /root/bin/m\
+ongodb-linux-x86_64-ubuntu1404-3.0.3/bin/mongod -f /root/conf/mongodb.conf'
+alias docker-monitor='docker run -d -p 80:80 --name monitor -v /root/workspace/src/mine/monitor/:/root/monitor node-0.12.3:v0.0.1 /root/bin/node/bin/node /root/monitor/app.js'
+alias docker-tool='docker run -d --name tool -p 221:22 -p 3000:3000 -v /root/workspace/:/root/workspace -v /root/workspace/conf/ssh/programming/:/root/.ssh -v /var/lib/docker:/var/lib/docker tool:v0.007 /usr/sbin/sshd -D'
+alias enter-tool='ssh -p 221 127.0.0.1'
+alias docker-vocabulary='docker run -d -p 8080:80 --name vocabulary -v /root/workspace/src/mine/proxy-node/:/root/proxy-node -v /root/workspace/src/mine/database/:/root/database -v /root/workspace/src/mine/parser/:/root/parser node-petite:v0.0.2 /root/bin/node/bin/node /root/proxy-node/proxy.js'
+alias docker-mongo-management-studio='docker run -d --name mongo-management-studio -p 8000:8000 -v /root/workspace/tools/mongo-management-studio/:/root/app node-0.12.3:v0.0.1 /root/bin/node/bin/node /root/app/server.js'
+alias ssh-tunnel-anyplex='ssh -N -f -D 0.0.0.0:1080 -p 22 122.152.173.184'
+alias ssh-tunnel-dongfong='ssh -N -f -D 0.0.0.0:1081 -p 5381 116.50.32.212'
+alias ssh-anyplex='ssh -p 22 122.152.173.184'
+alias ssh-dongfong='ssh -p 5381 116.50.32.212'
+alias docker-tool-32bit='docker run -d --name tool-32bit -p 222:22 -v /root/workspace/:/root/workspace -v /root/workspace/conf/ssh/programming/:/root/.ssh -v /var/lib/docker:/var/lib/docker 32bit/tool:v0.0.2 /usr/sbin/sshd -D'
+alias enter-tool-32bit='ssh -p 222 127.0.0.1'
+
+#export LSCOLORS="exfxcxdxbxbxbxbxbxbxbx"
+#export LS_COLORS="di=34;40:ln=35;40:so=34;40:pi=33;40:ex=31;40:bd=31;40:cd=31;40:su=31;40:sg=31;40:tw=31;40:ow=31;40:"
+export LS_COLORS="di=34"
+#export LS_COLORS="no=00:fi=00:di=01;33:ln=01;36:pi=40;33:so=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=01;32:*.cmd=01;32:*.exe=01;32:*.com=01;32:*.btm=01;32:*.bat=01;32:*.sh=01;32:*.csh=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.bz=01;31:*.tz=01;31:*.rpm=01;31:*.cpio=01;31:*.jpg=01;35:*.gif=01;35:*.bmp=01;35:*.xbm=01;35:*.xpm=01;35:*.png=01;35:*.tif=01;35:"
