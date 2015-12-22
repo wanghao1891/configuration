@@ -115,6 +115,8 @@ IKARUS_HOME=$BIN_HOME/ikarus
 
 JXCORE_HOME=$BIN_HOME/jxcore
 
+WATCHMAN_HOME=$BIN_HOME/watchman
+
 PATH="$PATH:\
 $PETITE_HOME/bin:\
 $NODE_HOME/bin:\
@@ -126,7 +128,8 @@ $XORRISO_HOME/bin:\
 $GO_HOME/bin:\
 $IPFS_HOME:\
 $IKARUS_HOME/bin:\
-$JXCORE_HOME/bin"
+$JXCORE_HOME/bin:\
+$WATCHMAN_HOME/bin"
 export SCHEMEHEAPDIRS PATH
 
 export DOCKER_CERT_PATH=/Users/huangling/.boot2docker/certs/boot2docker-vm
@@ -135,6 +138,7 @@ export DOCKER_HOST=tcp://192.168.59.103:2376
 
 ## tools
 alias e='/Users/huangling/wanghao/bin/emacs/bin/emacsclient -t'
+alias ec='/Users/huangling/wanghao/bin/emacs/bin/emacs'
 alias git-push='git commit -a -m "."; git push origin master'
 
 source ~/wanghao/tmp/conf/zsh/tool.sh
