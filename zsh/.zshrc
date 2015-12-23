@@ -141,6 +141,21 @@ alias e='/Users/huangling/wanghao/bin/emacs/bin/emacsclient -t'
 alias ec='/Users/huangling/wanghao/bin/emacs/bin/emacs'
 alias git-push='git commit -a -m "."; git push origin master'
 
+function switch-node() {
+    version=$1
+    echo $version
+    if [ -z "$version" ]; then
+        echo 'Please input version number.'
+        return 0
+    fi
+
+    echo "Switch version to $version."
+
+    cd $BIN_HOME
+    rm -f node
+    ln -s node-$version node
+}
+
 source ~/wanghao/tmp/conf/zsh/tool.sh
 
 ### vocabulary
@@ -159,6 +174,8 @@ alias cd-mine='cd $SRC_MINE_HOME'
 alias cd-monitor='cd $SRC_MINE_HOME/monitor'
 alias cd-sample='cd $SRC_MINE_HOME/sample'
 alias cd-conf='cd $CONF_HOME'
+alias cd-bin='cd $BIN_HOME'
+alias cd-food-client='cd $SRC_MINE_HOME/food-client'
 
 ## services
 alias start-docker='VBoxManage startvm docker -type headless'
