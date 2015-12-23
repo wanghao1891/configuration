@@ -148,9 +148,17 @@ alias rsync-vocabulary-media='rsync -avl "-e ssh -p 5381" root@116.50.32.212:/ro
 alias rsync-vocabulary-out='rsync -avl "-e ssh -p 5381" root@116.50.32.212:/root/.vocabulary/apps/proxy-node/out /Users/huangling/wanghao/src/mine/proxy-node/'
 
 ## links
-alias cd-wtfeed='cd ~/wanghao/src/worktile/wtfeed'
-alias cd-wtweb='cd ~/wanghao/src/worktile/wtweb'
-alias cd-lcweb='cd ~/wanghao/src/worktile/lcweb'
+SRC_HOME=$MYHOME/src
+CONF_HOME=$MYHOME/conf
+SRC_WORKTILE_HOME=$SRC_HOME/worktile
+SRC_MINE_HOME=$SRC_HOME/mine
+alias cd-wtfeed='cd $SRC_WORKTILE_HOME/wtfeed'
+alias cd-wtweb='cd $SRC_WORKTILE_HOME/wtweb'
+alias cd-lcweb='cd $SRC_WORKTILE_HOME/lcweb'
+alias cd-mine='cd $SRC_MINE_HOME'
+alias cd-monitor='cd $SRC_MINE_HOME/monitor'
+alias cd-sample='cd $SRC_MINE_HOME/sample'
+alias cd-conf='cd $CONF_HOME'
 
 ## services
 alias start-docker='VBoxManage startvm docker -type headless'
