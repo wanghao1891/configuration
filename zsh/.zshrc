@@ -145,7 +145,10 @@ function switch-node() {
     version=$1
     echo $version
     if [ -z "$version" ]; then
-        echo 'Please input version number.'
+        echo 'Please input version number. E.g.'
+        echo 'v0.12.7-darwin-x64'
+        echo 'v4.1.2-darwin-x64'
+        echo 'master'
         return 0
     fi
 
