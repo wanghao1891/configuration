@@ -170,6 +170,7 @@ SRC_HOME=$MYHOME/src
 CONF_HOME=$MYHOME/conf
 SRC_WORKTILE_HOME=$SRC_HOME/worktile
 SRC_MINE_HOME=$SRC_HOME/mine
+BOX_HOME=$MYHOME/box
 alias cd-wtfeed='cd $SRC_WORKTILE_HOME/wtfeed'
 alias cd-wtweb='cd $SRC_WORKTILE_HOME/wtweb'
 alias cd-lcweb='cd $SRC_WORKTILE_HOME/lcweb'
@@ -179,6 +180,8 @@ alias cd-sample='cd $SRC_MINE_HOME/sample'
 alias cd-conf='cd $CONF_HOME'
 alias cd-bin='cd $BIN_HOME'
 alias cd-food-client='cd $SRC_MINE_HOME/food-client'
+alias cd-box='cd $BOX_HOME'
+alias cd-doc='cd $BOX_HOME/doc'
 
 ## services
 alias start-docker='VBoxManage startvm docker -type headless'
