@@ -117,6 +117,8 @@ JXCORE_HOME=$BIN_HOME/jxcore
 
 WATCHMAN_HOME=$BIN_HOME/watchman
 
+LYNX_HOME=$BIN_HOME/lynx
+
 PATH="$PATH:\
 $PETITE_HOME/bin:\
 $NODE_HOME/bin:\
@@ -129,7 +131,8 @@ $GO_HOME/bin:\
 $IPFS_HOME:\
 $IKARUS_HOME/bin:\
 $JXCORE_HOME/bin:\
-$WATCHMAN_HOME/bin"
+$WATCHMAN_HOME/bin:\
+$LYNX_HOME/bin"
 export SCHEMEHEAPDIRS PATH
 
 export DOCKER_CERT_PATH=/Users/huangling/.boot2docker/certs/boot2docker-vm
@@ -182,6 +185,7 @@ alias cd-bin='cd $BIN_HOME'
 alias cd-food-client='cd $SRC_MINE_HOME/food-client'
 alias cd-box='cd $BOX_HOME'
 alias cd-doc='cd $BOX_HOME/doc'
+alias cd-tools='cd $MYHOME/tools'
 
 ## services
 alias start-docker='VBoxManage startvm docker -type headless'
