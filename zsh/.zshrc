@@ -119,6 +119,8 @@ WATCHMAN_HOME=$BIN_HOME/watchman
 
 LYNX_HOME=$BIN_HOME/lynx
 
+ANDROID_HOME=/Users/huangling/wanghao/bin/android-sdk-macosx
+
 PATH="$PATH:\
 $PETITE_HOME/bin:\
 $NODE_HOME/bin:\
@@ -132,8 +134,10 @@ $IPFS_HOME:\
 $IKARUS_HOME/bin:\
 $JXCORE_HOME/bin:\
 $WATCHMAN_HOME/bin:\
-$LYNX_HOME/bin"
+$LYNX_HOME/bin:\
+$ANDROID_HOME/tools"
 export SCHEMEHEAPDIRS PATH
+export ANDROID_HOME
 
 export DOCKER_CERT_PATH=/Users/huangling/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
@@ -160,6 +164,7 @@ function switch-node() {
     cd $BIN_HOME
     rm -f node
     ln -s node-$version node
+    cd -
 }
 
 source ~/wanghao/tmp/conf/zsh/tool.sh
