@@ -135,7 +135,8 @@ $IKARUS_HOME/bin:\
 $JXCORE_HOME/bin:\
 $WATCHMAN_HOME/bin:\
 $LYNX_HOME/bin:\
-$ANDROID_HOME/tools"
+$ANDROID_HOME/tools:\
+$ANDROID_HOME/platform-tools"
 export SCHEMEHEAPDIRS PATH
 export ANDROID_HOME
 
@@ -147,6 +148,9 @@ export DOCKER_HOST=tcp://192.168.59.103:2376
 alias e='/Users/huangling/wanghao/bin/emacs/bin/emacsclient -t'
 alias ec='/Users/huangling/wanghao/bin/emacs/bin/emacs'
 alias git-push='git commit -a -m "."; git push origin master'
+alias node-v0.12.7='/Users/huangling/wanghao/bin/node-v0.12.7-darwin-x64/bin/node'
+alias bower-v1.5.2='/Users/huangling/wanghao/bin/node-v0.12.7-darwin-x64/bin/bower'
+alias npm-v2.11.3='/Users/huangling/wanghao/bin/node-v0.12.7-darwin-x64/bin/npm'
 
 function switch-node() {
     version=$1
