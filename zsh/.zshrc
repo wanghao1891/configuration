@@ -151,6 +151,7 @@ alias git-push='git commit -a -m "."; git push origin master'
 alias node-v0.12.7='/Users/huangling/wanghao/bin/node-v0.12.7-darwin-x64/bin/node'
 alias bower-v1.5.2='/Users/huangling/wanghao/bin/node-v0.12.7-darwin-x64/bin/bower'
 alias npm-v2.11.3='/Users/huangling/wanghao/bin/node-v0.12.7-darwin-x64/bin/npm'
+alias gulp-v3.9.0='/Users/huangling/wanghao/bin/node-v0.12.7-darwin-x64/bin/gulp'
 
 function switch-node() {
     version=$1
@@ -159,6 +160,7 @@ function switch-node() {
         echo 'Please input version number. E.g.'
         echo 'v0.12.7-darwin-x64'
         echo 'v4.1.2-darwin-x64'
+        echo 'v5.7.0-darwin-x64'
         echo 'master'
         return 0
     fi
@@ -211,6 +213,7 @@ alias ssh-msb-node-pri='ssh root@192.168.1.239'
 alias ssh-msb-node-pub='ssh root@203.100.94.219'
 alias ssh-tunnel-dongfong='ssh -N -f -D 0.0.0.0:1081 -p 5381 root@116.50.32.212'
 alias ssh-dongfong='ssh -p 5381 root@116.50.32.212'
+alias ssh-food='ssh -i /Users/huangling/wanghao/aws/bryant1891-singapore.pem ubuntu@pourquoi.wang'
 
 ## applications
 alias start-wtfeed='cd $SRC_WORKTILE_HOME/wtfeed; node app.js'
@@ -226,3 +229,9 @@ pid=`ps -ef|grep "emacs --daemon"|grep -v grep|awk '{print $2}'`
 if [ "$pid" = "" ]; then
     start-emacs
 fi
+
+DISABLE_AUTO_TITLE="true"
+
+function set-tab-title() {
+    echo -e "\033];$1\007"
+}
