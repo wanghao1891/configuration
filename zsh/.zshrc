@@ -173,7 +173,7 @@ function switch-node() {
     cd -
 }
 
-source ~/wanghao/tmp/conf/zsh/tool.sh
+source ~/wanghao/security/conf/zsh/tool.sh
 
 ### vocabulary
 alias rsync-vocabulary-media='rsync -avl "-e ssh -p 5381" root@116.50.32.212:/root/.vocabulary/apps/proxy-node/media /Users/huangling/wanghao/src/mine/proxy-node/'
