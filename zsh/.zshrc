@@ -90,6 +90,9 @@ BIN_HOME=$MYHOME/bin
 PETITE_HOME=$MYHOME/bin/pcs
 SCHEMEHEAPDIRS=".:$PETITE_HOME/lib/csv8.4/%m:"
 
+CHEZ_HOME=$MYHOME/bin/chez
+SCHEMEHEAPDIRS=$SCHEMEHEAPDIRS:$CHEZ_HOME/lib/csv9.4/a6osx/
+
 NODE_HOME=$BIN_HOME/node
 
 MONGODB_HOME=$BIN_HOME/mongodb
@@ -122,6 +125,7 @@ LYNX_HOME=$BIN_HOME/lynx
 ANDROID_HOME=/Users/huangling/wanghao/bin/android-sdk-macosx
 
 PATH="$PATH:\
+$CHEZ_HOME/bin:\
 $PETITE_HOME/bin:\
 $NODE_HOME/bin:\
 $MONGODB_HOME/bin:\
