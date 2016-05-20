@@ -125,8 +125,8 @@ LYNX_HOME=$BIN_HOME/lynx
 ANDROID_HOME=/Users/huangling/wanghao/bin/android-sdk-macosx
 
 PATH="$PATH:\
-$CHEZ_HOME/bin:\
 $PETITE_HOME/bin:\
+$CHEZ_HOME/bin:\
 $NODE_HOME/bin:\
 $MONGODB_HOME/bin:\
 $REDIS_HOME/bin:\
