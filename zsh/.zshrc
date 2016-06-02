@@ -165,6 +165,7 @@ function switch-node() {
         echo 'v0.12.7-darwin-x64'
         echo 'v4.1.2-darwin-x64'
         echo 'v5.7.0-darwin-x64'
+        echo 'v6.2.0-darwin-x64'
         echo 'master'
         return 0
     fi
@@ -217,7 +218,9 @@ alias ssh-msb-node-pri='ssh root@192.168.1.239'
 alias ssh-msb-node-pub='ssh root@203.100.94.219'
 alias ssh-tunnel-dongfong='ssh -N -f -D 0.0.0.0:1081 -p 5381 root@116.50.32.212'
 alias ssh-dongfong='ssh -p 5381 root@116.50.32.212'
-alias ssh-food='ssh -i /Users/huangling/wanghao/aws/bryant1891-singapore.pem ubuntu@pourquoi.wang'
+alias ssh-free-aws='ssh -i /Users/huangling/wanghao/aws/bryant1891-singapore.pem ubuntu@pourquoi.wang'
+alias ssh-experiment-vm='ssh root@192.168.56.2'
+alias ssh-pri-deploy='ssh yctech@192.168.77.158'
 
 ## applications
 alias start-wtfeed='cd $SRC_WORKTILE_HOME/wtfeed; node app.js'
