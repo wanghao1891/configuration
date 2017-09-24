@@ -124,6 +124,8 @@ LYNX_HOME=$BIN_HOME/lynx
 
 ANDROID_HOME=/Users/huangling/wanghao/bin/android-sdk-macosx
 
+GOACCESS_HOME=$BIN_HOME/goaccess
+
 PATH="$PATH:\
 $PETITE_HOME/bin:\
 $CHEZ_HOME/bin:\
@@ -140,7 +142,8 @@ $JXCORE_HOME/bin:\
 $WATCHMAN_HOME/bin:\
 $LYNX_HOME/bin:\
 $ANDROID_HOME/tools:\
-$ANDROID_HOME/platform-tools"
+$ANDROID_HOME/platform-tools:\
+$GOACCESS_HOME/bin"
 export SCHEMEHEAPDIRS PATH
 export ANDROID_HOME
 
@@ -164,8 +167,12 @@ function switch-node() {
         echo 'Please input version number. E.g.'
         echo 'v0.12.7-darwin-x64'
         echo 'v4.1.2-darwin-x64'
+        echo 'v4.4.5-darwin-x64'
         echo 'v5.7.0-darwin-x64'
         echo 'v6.2.0-darwin-x64'
+        echo 'v6.3.0-darwin-x64'
+        echo 'v7.8.0-darwin-x64'
+        echo 'v8.4.0-darwin-x64'
         echo 'master'
         return 0
     fi
@@ -218,9 +225,19 @@ alias ssh-msb-node-pri='ssh root@192.168.1.239'
 alias ssh-msb-node-pub='ssh root@203.100.94.219'
 alias ssh-tunnel-dongfong='ssh -N -f -D 0.0.0.0:1081 -p 5381 root@116.50.32.212'
 alias ssh-dongfong='ssh -p 5381 root@116.50.32.212'
-alias ssh-free-aws='ssh -i /Users/huangling/wanghao/aws/bryant1891-singapore.pem ubuntu@pourquoi.wang'
+alias ssh-free-aws='ssh -i /Users/huangling/wanghao/aws/free-aws.pem ubuntu@52.221.209.186'
 alias ssh-experiment-vm='ssh root@192.168.56.2'
 alias ssh-pri-deploy='ssh yctech@192.168.77.158'
+alias ssh-pri-deploy-x11='ssh -X yctech@192.168.77.158'
+alias ssh-pri-deploy-vm-001='ssh ubuntu@192.168.77.7'
+alias ssh-pri-deploy-vm-002='ssh ubuntu@192.168.77.32'
+alias ssh-app-staging-ubuntu-14.04.04='ssh ubuntu@192.168.77.39'
+alias ssh-app-dev-ubuntu-14.04.04='ssh ubuntu@192.168.77.33'
+alias ssh-centos6.4-pri-deploy-vm-001='ssh root@192.168.77.36'
+alias ssh-centos-pri-deploy-vm-002='ssh root@192.168.77.36'
+alias ssh-centos7-pri-deploy-vm-001='ssh root@192.168.77.37'
+alias ssh-app-staging-centos-7='ssh root@192.168.77.37'
+alias ssh-mongodb-staging='ssh ubuntu@192.168.77.38'
 
 ## applications
 alias start-wtfeed='cd $SRC_WORKTILE_HOME/wtfeed; node app.js'
@@ -241,4 +258,13 @@ DISABLE_AUTO_TITLE="true"
 
 function set-tab-title() {
     echo -e "\033];$1\007"
+}
+
+function tree() {
+    find . -print 2>/dev/null | awk '!/\.$/ { \
+        for (i=1; i<NF; i++) { \
+            printf("%4s", "|") \
+        } \
+        print "-- "$NF \
+    }' FS='/'
 }
