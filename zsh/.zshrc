@@ -1,10 +1,13 @@
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/huangling/.oh-my-zsh
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
+# Path to your oh-my-zsh installation.
+export ZSH=/Users/hao/.oh-my-zsh
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# ZSH_THEME="robbyrussell"
 ZSH_THEME="mine"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -51,12 +54,11 @@ ZSH_THEME="mine"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+source $ZSH/oh-my-zsh.sh
+
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/local/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -72,7 +74,7 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -83,9 +85,12 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# add by hao.wang
 # env
-MYHOME=/Users/huangling/wanghao
+MYHOME=/Users/hao
 BIN_HOME=$MYHOME/bin
+
+EMACS_HOME=$BIN_HOME/emacs
 
 PETITE_HOME=$MYHOME/bin/pcs
 SCHEMEHEAPDIRS=".:$PETITE_HOME/lib/csv8.4/%m:"
@@ -152,8 +157,8 @@ export DOCKER_TLS_VERIFY=1
 export DOCKER_HOST=tcp://192.168.59.103:2376
 
 ## tools
-alias e='/Users/huangling/wanghao/bin/emacs/bin/emacsclient -t'
-alias ec='/Users/huangling/wanghao/bin/emacs/bin/emacs'
+alias e='$EMACS_HOME/bin/emacsclient -t'
+alias ec='$EMACS_HOME/emacs/bin/emacs'
 alias git-push='git commit -a -m "."; git push origin master'
 alias node-v0.12.7='/Users/huangling/wanghao/bin/node-v0.12.7-darwin-x64/bin/node'
 alias bower-v1.5.2='/Users/huangling/wanghao/bin/node-v0.12.7-darwin-x64/bin/bower'
@@ -185,7 +190,7 @@ function switch-node() {
     cd -
 }
 
-source ~/wanghao/security/conf/zsh/tool.sh
+source ~/security/conf/zsh/.zshrc
 
 ### vocabulary
 alias rsync-vocabulary-media='rsync -avl "-e ssh -p 5381" root@116.50.32.212:/root/.vocabulary/apps/proxy-node/media /Users/huangling/wanghao/src/mine/proxy-node/'
@@ -246,6 +251,11 @@ alias start-wtweb='cd $SRC_WORKTILE_HOME/wtweb; node app.js'
 # add by wh
 function start-emacs(){
     /Users/huangling/wanghao/bin/emacs/bin/emacs --daemon
+}
+
+function stop-emacs() {
+    pid=`ps -ef|grep "emacs --daemon"|grep -v grep|awk '{print $2}'`
+    kill -9 $pid
 }
 
 pid=`ps -ef|grep "emacs --daemon"|grep -v grep|awk '{print $2}'`
