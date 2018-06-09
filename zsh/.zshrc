@@ -131,6 +131,8 @@ ANDROID_HOME=/Users/huangling/wanghao/bin/android-sdk-macosx
 
 GOACCESS_HOME=$BIN_HOME/goaccess
 
+KUBERNETES_HOME=$BIN_HOME/kubernetes
+
 PATH="$PATH:\
 $PETITE_HOME/bin:\
 $CHEZ_HOME/bin:\
@@ -148,7 +150,8 @@ $WATCHMAN_HOME/bin:\
 $LYNX_HOME/bin:\
 $ANDROID_HOME/tools:\
 $ANDROID_HOME/platform-tools:\
-$GOACCESS_HOME/bin"
+$GOACCESS_HOME/bin:\
+$KUBERNETES_HOME/bin"
 export SCHEMEHEAPDIRS PATH
 export ANDROID_HOME
 
@@ -157,8 +160,8 @@ export DOCKER_TLS_VERIFY=1
 export DOCKER_HOST=tcp://192.168.59.103:2376
 
 ## tools
-alias e='$EMACS_HOME/bin/emacsclient -t'
-alias ec='$EMACS_HOME/emacs/bin/emacs'
+alias e='TERM=xterm $EMACS_HOME/bin/emacsclient -t'
+alias ec='TERM=xterm $EMACS_HOME/bin/emacs'
 alias git-push='git commit -a -m "."; git push origin master'
 alias node-v0.12.7='/Users/huangling/wanghao/bin/node-v0.12.7-darwin-x64/bin/node'
 alias bower-v1.5.2='/Users/huangling/wanghao/bin/node-v0.12.7-darwin-x64/bin/bower'
@@ -204,7 +207,7 @@ SRC_MINE_HOME=$SRC_HOME/mine
 BOX_HOME=$MYHOME/box
 alias cd-wtfeed='cd $SRC_WORKTILE_HOME/wtfeed'
 alias cd-wtweb='cd $SRC_WORKTILE_HOME/wtweb'
-alias cd-lcweb='cd $SRC_WORKTILE_HOME/lcweb'
+alias cd-gaea='cd $SRC_WORKTILE_HOME/wt-gaea'
 alias cd-mine='cd $SRC_MINE_HOME'
 alias cd-monitor='cd $SRC_MINE_HOME/monitor'
 alias cd-sample='cd $SRC_MINE_HOME/sample'
@@ -250,7 +253,7 @@ alias start-wtweb='cd $SRC_WORKTILE_HOME/wtweb; node app.js'
 
 # add by wh
 function start-emacs(){
-    /Users/huangling/wanghao/bin/emacs/bin/emacs --daemon
+    /Users/hao/bin/emacs/bin/emacs --daemon
 }
 
 function stop-emacs() {
@@ -278,3 +281,41 @@ function tree() {
         print "-- "$NF \
     }' FS='/'
 }
+
+## For Worktile Office Proxy Tunnel
+alias proxy-worktile-office-on-premises-on='ssh -fN worktile-office-proxy-on-premises'
+alias proxy-worktile-office-on-premises-check='ssh -O check worktile-office-proxy-on-premises'
+alias proxy-worktile-office-on-premises-off='ssh -O exit worktile-office-proxy-on-premises'
+
+alias proxy-worktile-office-worktile-me-on='ssh -fN worktile-office-proxy-worktile-me'
+alias proxy-worktile-office-worktile-me-check='ssh -O check worktile-office-proxy-worktile-me'
+alias proxy-worktile-office-worktile-me-off='ssh -O exit worktile-office-proxy-worktile-me'
+
+alias proxy-worktile-office-on='proxy-worktile-office-on-premises-on'
+alias proxy-worktile-office-check='proxy-worktile-office-on-premises-check'
+alias proxy-worktile-office-off='proxy-worktile-office-on-premises-off'
+
+alias proxy-worktile-us-on="ssh -fN worktile-us-proxy"
+alias proxy-worktile-us-check='ssh -O check worktile-us-proxy'
+alias proxy-worktile-us-off='ssh -O exit worktile-us-proxy'
+
+alias proxy-worktile-tw-on="ssh -fN worktile-tw-proxy"
+alias proxy-worktile-tw-check='ssh -O check worktile-tw-proxy'
+alias proxy-worktile-tw-off='ssh -O exit worktile-tw-proxy'
+
+alias proxy-worktile-de-on="ssh -fN worktile-de-proxy"
+alias proxy-worktile-de-check='ssh -O check worktile-de-proxy'
+alias proxy-worktile-de-off='ssh -O exit worktile-de-proxy'
+
+alias proxy-wt-gateway-aws-on="ssh -fN wt-gateway-aws-from-tunnel-proxy"
+alias proxy-wt-gateway-aws-check='ssh -O check wt-gateway-aws-from-tunnel-proxy'
+alias proxy-wt-gateway-aws-off='ssh -O exit wt-gateway-aws-from-tunnel-proxy'
+
+## start proxy automatically
+#is_proxy_on=`proxy-worktile-office-check|grep 'Master running'`
+#if [ "$is_proxy_on" = "" ]; then
+#    proxy-worktile-office-on
+#fi
+
+# virtual box
+alias start-on-premises-pack-ubuntu-16.04.3='VBoxManage startvm on-premises-pack-ubuntu-16.04.3 -type headless'
