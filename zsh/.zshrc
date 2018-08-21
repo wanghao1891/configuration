@@ -127,7 +127,7 @@ WATCHMAN_HOME=$BIN_HOME/watchman
 
 LYNX_HOME=$BIN_HOME/lynx
 
-ANDROID_HOME=/Users/huangling/wanghao/bin/android-sdk-macosx
+ANDROID_HOME=/Users/hao/bin/android-sdk-macosx
 
 GOACCESS_HOME=$BIN_HOME/goaccess
 
@@ -155,7 +155,7 @@ $KUBERNETES_HOME/bin"
 export SCHEMEHEAPDIRS PATH
 export ANDROID_HOME
 
-export DOCKER_CERT_PATH=/Users/huangling/.boot2docker/certs/boot2docker-vm
+export DOCKER_CERT_PATH=/Users/hao/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
 export DOCKER_HOST=tcp://192.168.59.103:2376
 
@@ -163,10 +163,10 @@ export DOCKER_HOST=tcp://192.168.59.103:2376
 alias e='TERM=xterm $EMACS_HOME/bin/emacsclient -t'
 alias ec='TERM=xterm $EMACS_HOME/bin/emacs'
 alias git-push='git commit -a -m "."; git push origin master'
-alias node-v0.12.7='/Users/huangling/wanghao/bin/node-v0.12.7-darwin-x64/bin/node'
-alias bower-v1.5.2='/Users/huangling/wanghao/bin/node-v0.12.7-darwin-x64/bin/bower'
-alias npm-v2.11.3='/Users/huangling/wanghao/bin/node-v0.12.7-darwin-x64/bin/npm'
-alias gulp-v3.9.0='/Users/huangling/wanghao/bin/node-v0.12.7-darwin-x64/bin/gulp'
+alias node-v0.12.7='/Users/hao/bin/node-v0.12.7-darwin-x64/bin/node'
+alias bower-v1.5.2='/Users/hao/bin/node-v0.12.7-darwin-x64/bin/bower'
+alias npm-v2.11.3='/Users/hao/bin/node-v0.12.7-darwin-x64/bin/npm'
+alias gulp-v3.9.0='/Users/hao/bin/node-v0.12.7-darwin-x64/bin/gulp'
 
 function switch-node() {
     version=$1
@@ -196,8 +196,8 @@ function switch-node() {
 source ~/security/conf/zsh/.zshrc
 
 ### vocabulary
-alias rsync-vocabulary-media='rsync -avl "-e ssh -p 5381" root@116.50.32.212:/root/.vocabulary/apps/proxy-node/media /Users/huangling/wanghao/src/mine/proxy-node/'
-alias rsync-vocabulary-out='rsync -avl "-e ssh -p 5381" root@116.50.32.212:/root/.vocabulary/apps/proxy-node/out /Users/huangling/wanghao/src/mine/proxy-node/'
+alias rsync-vocabulary-media='rsync -avl "-e ssh -p 5381" root@116.50.32.212:/root/.vocabulary/apps/proxy-node/media /Users/hao/src/mine/proxy-node/'
+alias rsync-vocabulary-out='rsync -avl "-e ssh -p 5381" root@116.50.32.212:/root/.vocabulary/apps/proxy-node/out /Users/hao/src/mine/proxy-node/'
 
 ## links
 SRC_HOME=$MYHOME/src
@@ -233,7 +233,7 @@ alias ssh-msb-node-pri='ssh root@192.168.1.239'
 alias ssh-msb-node-pub='ssh root@203.100.94.219'
 alias ssh-tunnel-dongfong='ssh -N -f -D 0.0.0.0:1081 -p 5381 root@116.50.32.212'
 alias ssh-dongfong='ssh -p 5381 root@116.50.32.212'
-alias ssh-free-aws='ssh -i /Users/huangling/wanghao/aws/free-aws.pem ubuntu@52.221.209.186'
+alias ssh-free-aws='ssh -i /Users/hao/aws/free-aws.pem ubuntu@52.221.209.186'
 alias ssh-experiment-vm='ssh root@192.168.56.2'
 alias ssh-pri-deploy='ssh yctech@192.168.77.158'
 alias ssh-pri-deploy-x11='ssh -X yctech@192.168.77.158'
