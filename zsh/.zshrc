@@ -97,6 +97,7 @@ SCHEMEHEAPDIRS=".:$PETITE_HOME/lib/csv8.4/%m:"
 
 CHEZ_HOME=$MYHOME/bin/chez
 SCHEMEHEAPDIRS=$SCHEMEHEAPDIRS:$CHEZ_HOME/lib/csv9.4/a6osx/
+SCHEMEHEAPDIRS=$SCHEMEHEAPDIRS:$CHEZ_HOME/lib/csv9.5.1/a6osx/
 
 NODE_HOME=$BIN_HOME/node
 
@@ -295,6 +296,10 @@ alias proxy-worktile-office-on='proxy-worktile-office-on-premises-on'
 alias proxy-worktile-office-check='proxy-worktile-office-on-premises-check'
 alias proxy-worktile-office-off='proxy-worktile-office-on-premises-off'
 
+#alias proxy-worktile-office-on='proxy-worktile-office-worktile-me-on'
+#alias proxy-worktile-office-check='proxy-worktile-office-worktile-me-check'
+#alias proxy-worktile-office-off='proxy-worktile-office-worktile-me-off'
+
 alias proxy-worktile-us-on="ssh -fN worktile-us-proxy"
 alias proxy-worktile-us-check='ssh -O check worktile-us-proxy'
 alias proxy-worktile-us-off='ssh -O exit worktile-us-proxy'
@@ -319,3 +324,10 @@ alias proxy-wt-gateway-aws-off='ssh -O exit wt-gateway-aws-from-tunnel-proxy'
 
 # virtual box
 alias start-on-premises-pack-ubuntu-16.04.3='VBoxManage startvm on-premises-pack-ubuntu-16.04.3 -type headless'
+
+function free_memory() {
+    vm_stat | perl -ne '/page size of (\d+)/ and $size=$1; /Pages\s+([^:]+)[^\d]+(\d+)/ and printf("%-16s % 16.2f Mi\n", "$1:", $2 * $size / 1048576);'
+}
+
+# Add Visual Studio Code (code)
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
